@@ -17,5 +17,10 @@ public class Unidade {
     public TipoUnidade getTipo() {
         return tipo;
     }
+
+    @Override
+    public String toString() {
+        return nome + " | " + tipo;
+    }
 }
 

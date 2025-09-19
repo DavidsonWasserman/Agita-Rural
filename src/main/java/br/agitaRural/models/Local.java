@@ -20,4 +20,9 @@ public class Local {
     public String getPontoDeReferencia() {
         return pontoDeReferencia;
     }
+
+    @Override
+    public String toString() {
+        return nome + " | " + endereco + " | " + pontoDeReferencia;
+    }
 }

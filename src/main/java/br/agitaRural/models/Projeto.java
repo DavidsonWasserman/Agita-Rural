@@ -48,5 +48,11 @@ public class Projeto {
     public List<RedeSocial> getPerfis() {
         return new ArrayList<>(perfis);
     }
+
+    @Override
+    public String toString(){
+        return nome + " | " + sobre + " | " + localParaInformacao + "\n" + perfis +
+                "\n" + "\nAcoes pertencentes ao projeto:\n" + acoes;
+    }
 }
 

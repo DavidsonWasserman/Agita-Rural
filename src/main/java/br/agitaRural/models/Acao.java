@@ -73,4 +73,9 @@ public class Acao {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return nome + " | " + sobre + "\n" + localizacao + "\n" + unidade + "\n" + perfis + "\n" + status;
+    }
 }

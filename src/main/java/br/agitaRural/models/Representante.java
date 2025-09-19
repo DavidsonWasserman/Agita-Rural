@@ -42,4 +42,9 @@ public class Representante {
     public void adicionarAcao(Acao acao) {
         this.acoes.add(acao);
     }
+
+    @Override
+    public String toString() {
+        return nomeCompleto + " | " + cpf + " | " + emailContato;
+    }
 }
