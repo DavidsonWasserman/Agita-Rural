@@ -10,4 +10,14 @@ public class Local {
         this.endereco = endereco;
         this.pontoDeReferencia = pontoDeReferencia;
     }
+
+    public String getNome() {
+        return nome;
+    }
+    public String getEndereco() {
+        return endereco;
+    }
+    public String getPontoDeReferencia() {
+        return pontoDeReferencia;
+    }
 }

@@ -1,12 +1,21 @@
 package br.agitaRural.models;
 
-public class Unidade {
-	private String nome;
-	private String tipo;
+import br.agitaRural.enums.TipoUnidade;
 
-    public Unidade(String nome, String tipo){
+public class Unidade {
+	private final String nome;
+	private final TipoUnidade tipo;
+
+    public Unidade(String nome, TipoUnidade tipo){
         this.nome = nome;
         this.tipo = tipo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+    public TipoUnidade getTipo() {
+        return tipo;
     }
 }
 
