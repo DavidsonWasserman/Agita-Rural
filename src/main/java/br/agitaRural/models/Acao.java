@@ -1,7 +1,6 @@
 package br.agitaRural.models;
 
 import br.agitaRural.enums.Status;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +8,7 @@ import java.util.List;
 public class Acao {
     private final String nome;
     private String sobre;
+    private String publicoAlvo;
     private final List<RedeSocial> perfis;
     private Local localizacao;
     private final LocalDateTime dataInicio;
@@ -16,16 +16,21 @@ public class Acao {
     private final List<Representante> representantes;
     private final Unidade unidade;
     private Status status;
+    private final boolean taxa;
+    private String preco;
 
-    public Acao(String nome, String sobre, Local localizacao, List<Representante> representantes, Unidade unidade) {
+    public Acao(String nome, String sobre, String publicoAlvo, Local localizacao, List<Representante> representantes, Unidade unidade, boolean taxa) {
         this.nome = nome;
         this.sobre = sobre;
+        this.publicoAlvo = publicoAlvo;
         this.localizacao = localizacao;
         this.representantes = representantes;
         this.unidade = unidade;
+        this.taxa = taxa;
         this.dataInicio = LocalDateTime.now();
         this.perfis = new ArrayList<>();
         this.status = Status.ATIVO;
+
     }
 
     public String getNome() {
@@ -34,9 +39,7 @@ public class Acao {
     public String getSobre() {
         return sobre;
     }
-    public void setSobre(String sobre) {
-        this.sobre = sobre;
-    }
+    public String getPublicoAlvo() { return publicoAlvo; }
     public List<RedeSocial> getPerfis() {
         return new ArrayList<>(perfis);
     }
@@ -46,17 +49,11 @@ public class Acao {
     public Local getLocalizacao() {
         return localizacao;
     }
-    public void setLocalizacao(Local localizacao) {
-        this.localizacao = localizacao;
-    }
     public LocalDateTime getDataInicio() {
         return dataInicio;
     }
     public LocalDateTime getDataFim() {
         return dataFim;
-    }
-    public void setDataFim(LocalDateTime dataFim) {
-        this.dataFim = dataFim;
     }
     public List<Representante> getRepresentantes() {
         return new ArrayList<>(representantes);
@@ -70,12 +67,24 @@ public class Acao {
     public Status getStatus() {
         return status;
     }
+    public boolean getTaxa() { return taxa; }
+    public String getPreco() { return preco; }
+
+    public void setSobre(String sobre) {
+        this.sobre = sobre;
+    }
+    public void setPublicoAlvo(String publicoAlvo) { this.publicoAlvo = publicoAlvo; }
+    public void setLocalizacao(Local localizacao) {
+        this.localizacao = localizacao;
+    }
+    public void setDataFim(LocalDateTime dataFim) {
+        this.dataFim = dataFim;
+    }
     public void setStatus(Status status) {
         this.status = status;
     }
-
-    @Override
-    public String toString() {
-        return nome + " | " + sobre + "\n" + localizacao + "\n" + unidade + "\n" + perfis + "\n" + status;
-    }
+    public void setPreco(String preço) {
+        this.preco = preco;
+        if (!taxa) this.preco = "GRATUITO";
+}
 }
